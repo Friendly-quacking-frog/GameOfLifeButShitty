@@ -1,7 +1,11 @@
 import java.security.SecureRandom;
-import java.awt.Color;
+import java.awt.*;
 
-public class Tile{
+public class Tile extends Canvas{
+
+  public void paint(Graphics g){
+
+  }
 
   private int width;
   private int height;
@@ -9,7 +13,7 @@ public class Tile{
 
   private SecureRandom random = new SecureRandom();
 
-  private Color randomColor(){
+  public Color randomColor(){
     int R = random.nextInt(256);
     int G = random.nextInt(256);
     int B = random.nextInt(256);
@@ -32,10 +36,7 @@ public class Tile{
     return color;
   }
 
-  Tile(int width, int height){
-    this.width = width;
-    this.height = height;
-    color = Color.gray;
+  Tile(){
   }
 
 }
