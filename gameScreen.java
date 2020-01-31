@@ -15,9 +15,10 @@ public class gameScreen{
   Timer timer = new Timer();
   Tile colorsetter = new Tile();
 
-  Canvas[][] tiles = new Canvas[20][20];
+  Canvas[][] tiles;
 
   gameScreen(int num_x, int num_y, int width, int height){
+    tiles = new Canvas[num_y][num_x];
     panel.setLayout(new GridLayout(num_y, num_x));
     for(int i=0; i<num_y; i++){
       for(int j=0; j<num_x; j++){
@@ -27,10 +28,13 @@ public class gameScreen{
         tiles[i][j].addMouseListener(new MouseAdapter(){
           public void mouseEntered(MouseEvent evt){
             System.out.println("over something");
+            Canvas c =(Canvas) evt.getSource();
+            c.setBackground(Color.BLACK);
           }
 
           public void mouseExited(MouseEvent evt){
-
+            Canvas c =(Canvas) evt.getSource();
+            c.setBackground(colorsetter.randomColor());
           }
         });
         panel.add(tiles[i][j]);
